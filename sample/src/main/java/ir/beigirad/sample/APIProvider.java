@@ -2,17 +2,17 @@ package ir.beigirad.sample;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
+import java.util.List;
+
 import ir.beigirad.encryptedgsonconverter.GsonEncryptConverterFactory;
+import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import se.simbio.encryption.Encryption;
-
-/**
- * Created by farhad-mbp on 3/30/18.
- */
+import third.part.android.util.Base64;
 
 public class APIProvider {
-    private String BASE_URL = "https://raw.githubusercontent.com";
+    private String BASE_URL = "https://khalsaiptv.net";
 
     private OkHttpClient okHttpClient;
     private Retrofit retrofit;
@@ -21,12 +21,14 @@ public class APIProvider {
     public APIProvider() {
 
         // for more detail visit https://github.com/simbiose/Encryption
-        Encryption encryption = Encryption.getDefault("MyKey", "MySalt", new byte[16]);
+        Encryption encryption = Encryption.getDefault("SomeKey",
+                "SomeSalt", new byte[16]);
 
 
         okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(new StethoInterceptor())
                 .build();
+
 
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
@@ -35,6 +37,7 @@ public class APIProvider {
                 .build();
 
         apiService = retrofit.create(APIService.class);
+
     }
 
     public APIService getApiService() {

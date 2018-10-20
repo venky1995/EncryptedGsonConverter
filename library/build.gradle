@@ -8,7 +8,7 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 10001
+        versionCode 1
         versionName "1.0.1"
 
     }
@@ -23,9 +23,11 @@ android {
 }
 
 dependencies {
-    implementation "com.squareup.retrofit2:retrofit:2.3.0"
-    api "com.google.code.gson:gson:2.8.2"
+    implementation "com.squareup.retrofit2:retrofit:2.4.0"
+    api "com.google.code.gson:gson:2.8.5"
     api "com.github.simbiose:Encryption:2.0.1"
+    implementation 'com.github.simbiose:Encryption:2.0.1'
+
 }
 allprojects {
     repositories {

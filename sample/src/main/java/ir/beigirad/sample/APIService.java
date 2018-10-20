@@ -1,5 +1,7 @@
 package ir.beigirad.sample;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -9,6 +11,7 @@ import retrofit2.http.POST;
  */
 
 public interface APIService {
-    @GET("/beigirad/EncryptedGsonConverter/master/files/person-encrypted.json")
-    Call<Person> getPerson();
+    String BASE_URL = "https://khalsaiptv.net";
+    @GET("/encrypt/livetv.json")
+    Call<List<Person>> getPerson();
 }
